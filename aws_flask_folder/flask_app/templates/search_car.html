@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Search Car</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?cs=srgb&dl=pexels-mikebirdy-120049.jpg&fm=jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white; /* Adjust color for better readability */
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+            padding: 8px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container h1{
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="my-2 bg-primary">Search for a Car</h1>
+        <form method="POST" action="{{ url_for('search_car') }}">
+            <div class="form-group">
+                <label for="car_id"><img src="https://w7.pngwing.com/pngs/106/775/png-transparent-magnifying-glass-magnifier-mirror-loupe-magnifying-glass-glass-image-file-formats-lens.png" style="width:80px; "/></label>
+                <input type="text" class="form-control" id="car_id" name="car_id" placeholder="Enter id" required>
+            </div>
+            <button type="submit" class="btn btn-primary my-3">Search</button>
+            <a href="{{ url_for('index') }}" class="btn btn-warning ">Back</a>
+        </form>
+        
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+

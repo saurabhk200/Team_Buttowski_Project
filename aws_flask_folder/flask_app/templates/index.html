@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <style>
+        html {
+          position: relative;
+          min-height: 100%;
+        }
+        body {
+          margin-bottom: 60px; /* Margin bottom by footer height */
+          background-color:#e2e2e2;
+        }
+        .footer {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          background-color: #343a40; /* Dark background color */
+          color: white; /* White text color */
+          text-align: center;
+          padding: 15px 0; /* Padding top and bottom */
+        }
+      </style>
+      
+  </head>
+  <body>
+    <div class="container text-center ">
+      <h2 class="mt-5"> Used Cars Tables</h2>
+      <form method="POST" action="{{ url_for('show_table') }}">
+        <div class="form-group">
+          <select class="form-control" id="table_name" name="table_name">
+            {% for table in tables %}
+            <option value="{{ table }}">{{ table }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Show Table</button>
+      </form>
+    </div>
+    <div class="container my-2">
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="https://www.carandbike.com/_next/image?url=https%3A%2F%2Fimages.carandbike.com%2Fcar-images%2Fbig%2Fhyundai%2Fcreta%2Fhyundai-creta.jpg%3Fv%3D92&w=640&q=75" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-text ">First Owner Cars (2016-2020) with Driven less than 80,000 kms</h5>
+              <a href="/firstOwner" class="btn btn-primary">Check Info</a>
+            </div>
+          </div>
+        </div>  
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="https://cdn.motor1.com/images/mgl/ZnmO23/s3/future-cars-2023-2026.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-text">Diesel Cars (2018-2020) with Driven 25 kmpl and 4-5 Seaters</h5>
+              <a href="/fuelDeasel" class="btn btn-primary">Check Info</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/images/car-reviews/first-drives/legacy/rolls_royce_phantom_top_10.jpg?itok=XjL9f1tx" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-text">Unsold Cars (2014-2020) by Individuals/Dealers, Driven < 60,000 kms</h5>
+              <a href="/salesStatus" class="btn btn-primary">Check Info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-2">
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="https://images.unsplash.com/photo-1570294646112-27ce4f174e38?ixlib=rb-4.0.3" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-text">Manual/Automatic Cars (20-25 kmpl) in Mumbai, Hydrabad, Kanpur, Surat</h5>
+              <a href="/accordingCity" class="btn btn-primary">Check Info</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="https://carwow-uk-wp-3.imgix.net/18015-MC20BluInfinito-scaled-e1707920217641.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+            
+              <h5 class="card-text">Unsold Honda Cars (1st/2nd Owner, Petrol, 25 kmpl, 4+ Seater)</h5>
+              <a href="/hondaPetrolSales" class="btn btn-primary">Check Info</a>
+            </div>
+          </div>
+        </div>
+
+       <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="https://img.freepik.com/premium-photo/search-bar-magnifying-glass-pink-background-searching-information-data-internet-networking_94120-1715.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+            
+              <h5 class="card-text">Search Car By Identifier.</h5>
+              <a href="/search_car" class="btn btn-danger">Search</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer bg-dark text-white py-3">
+        <div class=" text-center">
+          <span>&copy; 2024 Buttowskis-ContinuServe</span>
+        </div>
+      </footer>
+  </body>
+</html>
+

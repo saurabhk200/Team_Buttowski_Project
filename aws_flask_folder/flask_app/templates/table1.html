@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Table Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <style>
+        body {
+          background-color: #e2e2e2;
+          color: black;
+        }
+        .table {
+          background-color: rgb(20, 60, 60);
+          color: white;
+        }
+        .table th, .table td {
+          border: 1px solid white;
+        }
+        .header th{
+          background-color: white;
+          border-color: black;
+          color:black;
+        }
+        .footer {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          background-color: #343a40; /* Dark background color */
+          color: white; /* White text color */
+          text-align: center;
+          padding: 15px 0; /* Padding top and bottom */
+        }
+      </style>
+</head>
+<body>
+    <div class="">
+        <h1 class="mt-2">{{ table_name }}</h1>
+        <table class="table table-bordered ">
+            <thead class="header" >
+                <tr >
+                    {% for key in table_name[0].keys() %}
+                    <th>{{ key }}</th>
+                    {% endfor %}
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in table_name %}
+                <tr>
+                    {% for value in row.values() %}
+                    <td>{{ value }}</td>
+                    {% endfor %}
+                   
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('index') }}" class="btn btn-warning mt-2">Back</a>
+    </div>
+    <footer class="footer bg-dark text-white py-3">
+      <div class="container text-center">
+        <span>&copy; 2024 Buttoskies-ContinuServe</span>
+      </div>
+    </footer>
+</body>
+</html>
+

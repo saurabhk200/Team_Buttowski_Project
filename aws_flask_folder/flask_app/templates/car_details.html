@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Car Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?cs=srgb&dl=pexels-mikebirdy-120049.jpg&fm=jpg') no-repeat center center fixed;
+            background-size: cover;
+            
+        }
+        .container {
+            max-width: 100%%;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .car-details {
+            margin-top: 20px;
+        }
+        .car-details h3 {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .car-details p {
+            padding: 8px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-2 text-center">Car Details</h1>
+        <div class="car-details">
+            <h3>Car ID: {{ car.SALES_ID }}</h3>
+            <div class="row">
+                <div class="col"><p><strong>Model:</strong> {{ car.NAME }}</p></div>
+                <div class="col"><p><strong>Year:</strong> {{ car.YEAR }}</p></div>
+                <div class="col"><p><strong>KM Driven:</strong> {{ car.KM_DRIVEN }}</p></div>
+                <div class="col"><p><strong>Fuel:</strong> {{ car.FUEL }}</p></div>
+            </div>
+            <div class="row">
+                <div class="col"><p><strong>Seller Type:</strong> {{ car.SELLER_TYPE}}</p></div>
+                <div class="col"><p><strong>Transmission:</strong> {{ car.TRANSMISSION }}</p></div>
+                <div class="col"><p><strong>Owner:</strong> {{ car.OWNER }}</p></div>
+                <div class="col"><p><strong>Seats:</strong> {{ car.SEATS }}</p></div>
+            </div>
+            <div class="row">
+                <div class="col"><p><strong>Mileage:</strong> {{ car.MILEAGE }}</p></div>
+                <div class="col"><p><strong>Engine:</strong> {{ car.ENGINE }}</p></div>
+                <div class="col"><p><strong>Max Power:</strong> {{ car.MAX_POWER }}</p></div>
+                <div class="col"><p><strong>Sold Status:</strong> {{ car.SOLD }}</p></div>
+            </div>
+            <div class="row">
+                <div class="col"><p><strong>City Code:</strong> {{ car.CITY_CODE }}</p></div>
+                <div class="col"><p><strong>City Name:</strong> {{ car.CITY_NAME }}</p></div>
+                <div class="col"><p><strong>State Code:</strong> {{ car.STATE_CODE }}</p></div>
+                <div class="col"><p><strong>State Name:</strong> {{ car.STATE_NAME }}</p></div>
+            </div>
+            <div class="row">
+                <div class="col"><p><strong>Postal Code:</strong> {{ car.POSTAL_CODE }}</p></div>
+                <div class="col"><p><strong>Selling Price:</strong> <b>{{ car.SELLING_PRICE }} ₹</b></p></div>
+            </div>
+        </div>
+        <a href="{{ url_for('index') }}" class="btn btn-warning mt-2">Back</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
