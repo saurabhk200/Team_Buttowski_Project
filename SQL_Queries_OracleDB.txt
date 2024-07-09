@@ -1,0 +1,68 @@
+--a.	Generate Info of the cars which is of the type first owner and the year of car purchase is between 2016-2020 and the number of kms driven is less than 80,000 
+    
+    SELECT *
+FROM car_sales_transactions
+WHERE Owner = 'First Owner'
+AND Year BETWEEN 2016 AND 2020
+AND km_Driven < 80000;
+ 
+--b.	Generate Info of all the cars whose average mileage is around 25 kmpl and year of car purchase is between 2018-2020 which has a minimum seating of 4-5 and fuel type is diesel.
+SELECT *
+FROM car_sales_transactions
+WHERE TO_NUMBER(REGEXP_SUBSTR(Mileage,'^[0-9]+(\.[0-9]+)?')) BETWEEN 24 AND 26
+AND Year BETWEEN 2018 AND 2020
+AND Seats IN (4, 5)
+AND Fuel = 'Diesel';
+
+--c.	Generate Info of all the cars which are not sold, and seller-type is individual or dealer and also which has been used for less than 60000 kms 
+--and year of car purchase is 2014-2020.
+
+SELECT ct.*,ss.Sold
+FROM car_sales_transactions ct
+JOIN sales_status ss ON ct.Sales_ID = ss.Sales_ID
+WHERE ss.Sold = 'N'
+AND ct.Seller_Type IN ('Individual', 'Dealer')
+AND ct.km_Driven < 60000
+AND ct.Year BETWEEN 2014 AND 2020;
+
+--d.	Generate Info of all the cars which are manual and automatic whose mileage ranges between 20-25kmpl approximately and also which is within these 
+--cities(Mumbai,Surat,Hydrabad,Kanpur)
+
+SELECT ct.*,cm.city_name
+FROM car_sales_transactions ct
+JOIN city_master cm ON ct.City_Code = cm.City_Code
+WHERE ct.Transmission IN ('Manual', 'Automatic')
+AND TO_NUMBER(REGEXP_SUBSTR(ct.Mileage,'^[0-9]+(\.[0-9]+)?')) BETWEEN 20 AND 25
+AND cm.City_Name IN ('Mumbai', 'Hydrabad', 'Surat', 'Kanpur');
+
+--e.	Generate Info of all the  cars  which belong to honda category could be either first owner and second owner 
+--and also fuel type is petrol and average mileage should be 25kmpl and which are not sold and seating arrangement should be minimum 4.
+
+SELECT ct.*,ss.Sold
+FROM car_sales_transactions ct
+JOIN sales_status ss ON ct.Sales_ID = ss.Sales_ID
+WHERE ct.Name LIKE 'Honda%'
+AND ct.Owner IN ('First Owner', 'Second Owner')
+AND ct.Fuel = 'Petrol'
+AND TO_NUMBER(REGEXP_SUBSTR(ct.Mileage,'^[0-9]+(\.[0-9]+)?')) = 17.0
+AND ss.Sold = 'Y'
+AND ct.Seats >= 4;
+    
+    
+--search details by Identifier    
+SELECT 
+    cst.*, 
+    cm.city_name, 
+    sm.state_name,
+    ss.sold
+FROM 
+    car_sales_transactions cst
+JOIN 
+    city_master cm ON cst.city_code = cm.city_code
+JOIN 
+    state_master sm ON cst.state_code = sm.state_code
+JOIN 
+    sales_status ss ON cst.sales_id = ss.sales_id
+WHERE 
+    cst.sales_id = 3;
+    
