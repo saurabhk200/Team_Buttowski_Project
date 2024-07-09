@@ -10,8 +10,8 @@ csv_keys = ['Car_sales_transactions.csv','Sales_Status.csv','City_Master.csv','P
 S3_BUCKET = 'usedcarsbucket'
 S3_REGION = 'ap-south-1'
 
-s3 = boto3.client('s3', region_name=S3_REGION,aws_access_key_id='AKIA4MTWL5QWEYOLYIXI',
-                         aws_secret_access_key='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')
+s3 = boto3.client('s3', region_name=S3_REGION,aws_access_key_id='AKIA******QWEYOLYIXI',
+                         aws_secret_access_key='jsiXyseA+l/LKe/********JfRlcimbUqb8L4NeF')
 
 def get_csv_from_s3(bucket, key):
     obj = s3.get_object(Bucket=bucket, Key=key)
